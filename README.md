@@ -15,6 +15,7 @@
 8. [Thách thức & Giải pháp](#8-thách-thức--giải-pháp)
 9. [Hướng phát triển](#9-hướng-phát-triển)
 10. [Contributors](#10-contributors)
+11. [License](#11-license)
 
 ---
 
@@ -53,7 +54,7 @@ Trong bối cảnh đại dịch, thông tin trên mạng xã hội đóng vai t
 
 Quy trình được thực hiện qua 3 giai đoạn chính, ưu tiên sử dụng `numpy` để thao tác trên ma trận.
 
-### 🛠 Quy trình xử lý (Pipeline)
+### Quy trình xử lý (Pipeline)
 1.  **Parsing thủ công:** Đọc file CSV, tách chuỗi để xử lý các dòng bị lỗi định dạng.
 2.  **Data Cleaning:**
     * Loại bỏ ngoại lai (Outliers) của `user_followers` bằng phương pháp **IQR** (Interquartile Range).
