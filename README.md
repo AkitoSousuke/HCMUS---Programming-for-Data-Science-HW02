@@ -58,8 +58,7 @@ Quy trình được thực hiện qua 3 giai đoạn chính, ưu tiên sử dụ
 1.  **Parsing thủ công:** Đọc file CSV, tách chuỗi để xử lý các dòng bị lỗi định dạng.
 2.  **Data Cleaning:**
     * Loại bỏ ngoại lai (Outliers) của `user_followers` bằng phương pháp **IQR** (Interquartile Range).
-    * Công thức: $IQR = Q3 - Q1$, Giữ lại dữ liệu trong khoảng [$Q1 - 1.5*IQR, Q3 + 1.5*IQR$] 
-
+    * Công thức: $IQR = Q3 - Q1$, Giữ lại dữ liệu trong khoảng $$[Q_1 - 1.5 \times IQR, Q_3 + 1.5 \times IQR]$$
 
 3.  **Imputation (Điền khuyết):** Sử dụng **Linear Regression** để dự đoán và điền giá trị thiếu cho cột `retweets` dựa trên `followers`.
 4.  **Feature Engineering:**
