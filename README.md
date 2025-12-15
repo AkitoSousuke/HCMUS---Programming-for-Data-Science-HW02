@@ -58,7 +58,10 @@ Quy trình được thực hiện qua 3 giai đoạn chính, ưu tiên sử dụ
 1.  **Parsing thủ công:** Đọc file CSV, tách chuỗi để xử lý các dòng bị lỗi định dạng.
 2.  **Data Cleaning:**
     * Loại bỏ ngoại lai (Outliers) của `user_followers` bằng phương pháp **IQR** (Interquartile Range).
-    * Công thức: $IQR = Q3 - Q1$, Giữ lại dữ liệu trong khoảng $[Q1 - 1.5*IQR, Q3 + 1.5*IQR]$.
+    * Công thức: $IQR = Q3 - Q1$, Giữ lại dữ liệu trong khoảng $$
+[Q_1 - 1.5 \times IQR,\; Q_3 + 1.5 \times IQR]
+$$
+
 3.  **Imputation (Điền khuyết):** Sử dụng **Linear Regression** để dự đoán và điền giá trị thiếu cho cột `retweets` dựa trên `followers`.
 4.  **Feature Engineering:**
     * *Account Age:* Tính tuổi tài khoản từ `user_created`.
@@ -103,9 +106,9 @@ Dự án ưu tiên **NumPy from scratch**, chỉ sử dụng các thư viện sa
 - `jupyter`
 
 Cài đặt bằng pip:
-bash
+```bash
 pip install -r requirements.txt
-
+```
 ---
 
 ## 5. Hướng dẫn sử dụng (Usage)
@@ -292,24 +295,30 @@ Xây dựng **Clean Numerical Dataset** để đưa vào mô hình học máy
 --- 
 
 ## 7. Cấu trúc dự án
+
+```text
 project-root/
 ├── README.md              # Mô tả dự án
 ├── requirements.txt       # Thư viện cần thiết
 ├── data/
-│   ├── raw/vaccination_tweets.csv               # Dữ liệu gốc
-│   └── processed/processed_dataset.csv     # Dữ liệu sau tiền xử lý
+│   ├── raw/
+│   │   └── vaccination_tweets.csv
+│   └── processed/
+│       └── processed_dataset.csv
 ├── notebooks/
 │   ├── 01_data_exploration.ipynb
 │   ├── 02_preprocessing.ipynb
 │   └── 03_modeling.ipynb
-├── src/
-│   ├── data_processing.py # Làm sạch & feature engineering
-│   ├── visualization.py  # Hàm vẽ biểu đồ
-│   └── models.py          # Các mô hình ML cài đặt bằng NumPy
+└── src/
+    ├── data_processing.py
+    ├── visualization.py
+    └── models.py
+```
+
 
 ---
 
-## 8. Thách thức & Giải pháp (Challengers & Solutions)
+## 8. Thách thức & Giải pháp (Challenges & Solutions)
 **Thách thức:**
 - Không sử dụng Pandas/Scikit-learn
 - Hiệu suất thấp nếu dùng vòng lặp for
